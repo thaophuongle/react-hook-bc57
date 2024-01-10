@@ -21,6 +21,16 @@ const Header = () => {
           <NavLink className="dropdown-item" to="use-state-demo">UseState</NavLink>
           <NavLink className="dropdown-item" to="use-state-change-profile">UseState Change Profile</NavLink>
           <NavLink className="dropdown-item" to="use-effect-didmount">UseEffect DidMount</NavLink>
+          <NavLink className="dropdown-item" to="use-effect-didupdate">UseEffect DidUpdate</NavLink>
+          <NavLink className="dropdown-item" to="use-effect-unmount">UseEffect Unmount</NavLink>
+        </div>
+      </li>
+      <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" id="dropdownId1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Redux</a>
+        <div className="dropdown-menu" aria-labelledby="dropdownId1">
+          <NavLink className="dropdown-item" to="use-redux-demo-chat">Redux Hook Chat Demo</NavLink>
+          <NavLink className="dropdown-item" to="use-redux-demo-change-font-size">Redux Hook Change Font Size</NavLink>
+          <NavLink className="dropdown-item" to="use-redux-crud">CRUD Form (Redux)</NavLink>
         </div>
       </li>
     </ul>
