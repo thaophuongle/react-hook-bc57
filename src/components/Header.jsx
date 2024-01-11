@@ -5,7 +5,7 @@ const Header = () => {
   return (
     //bs5=navbar-background
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-  <a className="navbar-brand" href="#">Navbar</a>
+  <NavLink className="navbar-brand" to="/">React Hook</NavLink>
   <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
   <div className="collapse navbar-collapse" id="collapsibleNavId">
     <ul className="navbar-nav me-auto mt-2 mt-lg-0">
@@ -23,6 +23,9 @@ const Header = () => {
           <NavLink className="dropdown-item" to="use-effect-didmount">UseEffect DidMount</NavLink>
           <NavLink className="dropdown-item" to="use-effect-didupdate">UseEffect DidUpdate</NavLink>
           <NavLink className="dropdown-item" to="use-effect-unmount">UseEffect Unmount</NavLink>
+          <NavLink className="dropdown-item" to="use-callback">UseCallback</NavLink>
+          <NavLink className="dropdown-item" to="use-memo">UseMemo</NavLink>
+          <NavLink className="dropdown-item" to="use-ref">UseRef</NavLink>
         </div>
       </li>
       <li className="nav-item dropdown">
