@@ -17,6 +17,12 @@ import CRUDProduct from "./hooks/EXHookRedux/CRUDProduct";
 import HookUseCallback from "./hooks/EXUseCallback/HookUseCallback";
 import HookUseMemo from "./hooks/EXHookUseMemo/HookUseMemo";
 import EXHookUseRef from "./hooks/EXHookUseRef/EXHookUseRef";
+import EXHookFormik from "./hooks/EXHookFormik/EXHookFormik";
+import Profile from "./pages/Profile";
+import ForgotPassword from "./pages/ForgotPassword";
+import Login from "./pages/Login";
+import Detail from "./pages/Detail";
+import Search from "./pages/Search";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -34,6 +40,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="use-redux-crud" element={<CRUDProduct />} /> 
           <Route path="use-memo" element={<HookUseMemo />} />
           <Route path="use-ref" element={<EXHookUseRef />} />
+          <Route path="use-formik" element={<EXHookFormik />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="forgot-pass" element={<ForgotPassword />} />
+          <Route path="login" element={<Login />} />
+          <Route path="detail">
+            <Route path=":id" element={<Detail/>}></Route>
+          </Route>
+          <Route path="search" element={<Search />} />
+
           
           <Route path="*" element={<Navigate to="" />} />
         </Route>

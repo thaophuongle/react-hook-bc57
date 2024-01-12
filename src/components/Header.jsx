@@ -10,10 +10,10 @@ const Header = () => {
   <div className="collapse navbar-collapse" id="collapsibleNavId">
     <ul className="navbar-nav me-auto mt-2 mt-lg-0">
       <li className="nav-item">
-        <a className="nav-link active" href="#" aria-current="page">Home <span className="visually-hidden">(current)</span></a>
+        <NavLink className="nav-link active" to="/" aria-current="page">Home <span className="visually-hidden">(current)</span></NavLink>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
+        <NavLink className="nav-link" to="login">Login</NavLink>
       </li>
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hooks</a>
@@ -34,6 +34,12 @@ const Header = () => {
           <NavLink className="dropdown-item" to="use-redux-demo-chat">Redux Hook Chat Demo</NavLink>
           <NavLink className="dropdown-item" to="use-redux-demo-change-font-size">Redux Hook Change Font Size</NavLink>
           <NavLink className="dropdown-item" to="use-redux-crud">CRUD Form (Redux)</NavLink>
+        </div>
+      </li>
+      <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" id="dropdownId1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lib Hook</a>
+        <div className="dropdown-menu" aria-labelledby="dropdownId1">
+          <NavLink className="dropdown-item" to="use-formik">UseFormik</NavLink>
         </div>
       </li>
     </ul>
