@@ -23,6 +23,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
+import TrangChu from "./pages/TrangChu";
+import AntDemo from "./pages/AntDemo";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -48,6 +50,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path=":id" element={<Detail/>}></Route>
           </Route>
           <Route path="search" element={<Search />} />
+          <Route path="trang-chu" element={<TrangChu />} />
+          <Route path="ant-demo" element={<AntDemo />} />
 
           
           <Route path="*" element={<Navigate to="" />} />

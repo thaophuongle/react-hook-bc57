@@ -10,10 +10,16 @@ const Header = () => {
   <div className="collapse navbar-collapse" id="collapsibleNavId">
     <ul className="navbar-nav me-auto mt-2 mt-lg-0">
       <li className="nav-item">
-        <NavLink className="nav-link active" to="/" aria-current="page">Home <span className="visually-hidden">(current)</span></NavLink>
+        <NavLink className="nav-link active" to="trang-chu" aria-current="page">Home <span className="visually-hidden">(current)</span></NavLink>
       </li>
       <li className="nav-item">
         <NavLink className="nav-link" to="login">Login</NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="search">Search</NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="ant-demo">Ant Design</NavLink>
       </li>
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hooks</a>

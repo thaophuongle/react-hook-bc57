@@ -53,14 +53,20 @@ useEffect(() => {
         <div className="row">
           {
             prodDetail.relatedProducts?.map((prod) => {
-              return <div className="card col-4" key={prod.id}>
-                <img src={prod.image} alt="" />
-                <div className="card-body">
-                  <h3>{prod.name}</h3>
-                  <p>${prod.price}</p>
-                  <NavLink className='btn btn-dark' to={`/detail/${prod.id}`}>View Detail</NavLink>
+              return (
+                <div className="col-md-4 mt-2" key={prod.id}>
+                  <div className="card" key={prod.id}>
+                    <img src={prod.image} alt="" />
+                    <div className="card-body">
+                      <h3>{prod.name}</h3>
+                      <p>${prod.price}</p>
+                      <NavLink className="btn btn-dark" to={`/detail/${prod.id}`}>
+                        View Detail
+                      </NavLink>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              );
             })
           }
         </div>
