@@ -18,8 +18,13 @@ const Header = () => {
       <li className="nav-item">
         <NavLink className="nav-link" to="search">Search</NavLink>
       </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="ant-demo">Ant Design</NavLink>
+      <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" id="dropdownId2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ant Design</a>
+        <div className="dropdown-menu" aria-labelledby="dropdownId2">
+        <NavLink className="dropdown-item" to="ant-demo">Ant Design</NavLink>
+        <NavLink className="dropdown-item" to="table-antd">Table Antd</NavLink>
+        <NavLink className="dropdown-item" to="product-management">Product Management</NavLink>
+        </div>
       </li>
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hooks</a>

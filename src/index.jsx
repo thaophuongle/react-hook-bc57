@@ -25,6 +25,8 @@ import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import TrangChu from "./pages/TrangChu";
 import AntDemo from "./pages/AntDemo";
+import TableAntd from "./pages/TableAntd";
+import ProductManagement from "./pages/ProductManagement";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -52,7 +54,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="search" element={<Search />} />
           <Route path="trang-chu" element={<TrangChu />} />
           <Route path="ant-demo" element={<AntDemo />} />
-
+          <Route path="table-antd" element={<TableAntd />} />
+          <Route path="product-management" element={<ProductManagement />} />
           
           <Route path="*" element={<Navigate to="" />} />
         </Route>
