@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button, Space, Table } from "antd";
 import { NavLink } from "react-router-dom";
 import axios from 'axios'
-import { setArrayProductAction } from "../redux/Reducers/ProductReducer";
+import { getAllProductApiAction, getAllProductAsyncThunkAction, setArrayProductAction } from "../redux/Reducers/ProductReducer";
 
 
 //dữ liệu bên ngoài component
@@ -20,20 +20,50 @@ const ProductManagement = () => {
  const dispatch = useDispatch()
  console.log(arrProduct)
 
- const getAllProduct = async () => {
-  const res = await axios({
-    url: 'https://shop.cyberlearn.vn/api/Product',
-    method: 'GET'
-  })
+//  const getAllProduct = async () => {
+//   const res = await axios({
+//     url: 'https://shop.cyberlearn.vn/api/Product',
+//     method: 'GET'
+//   })
+//   const action = setArrayProductAction(res.data.content)
+//   dispatch(action)
+//  }
 
-  const action = setArrayProductAction(res.data.content)
+  /*
+    action-thường: {type: '', payload: ...}  
+    action-thunk: (dispatch) => {
+      //xử lý abc để có dữ liệu và dùng dispatch đưa lên redux
+    }
+  */
+
+// dispatch(async (dispatch) => {
+//   const res = await axios({
+//         url: 'https://shop.cyberlearn.vn/api/Product',
+//         method: 'GET'
+//       })
+//       //sau khi có dữ liệu
+//       const action = setArrayProductAction(res.data.content)
+//       dispatch(action)
+// }) //hai lần dispatch
+// //lần đầu là dispatch nguyên hàm
+// //lần 2 là dùng dispatch (which is tham số 'dispatch' trong hàm dispatch)
+
+const getAllProduct = async() => {
+  //cách 1: create action thunk (action)
+  const action = getAllProductApiAction()
   dispatch(action)
- }
+  //dispatch 1 action là function có tham số là dispatch
+
+  //cách 2: create async thunk
+  //const action = getAllProductAsyncThunkAction;
+  //dispatch(action)
+}
 
 useEffect(() => {
+  //Gọi api
   getAllProduct()
-}, [])
 
+}, [])
 
  const handleChange = (pagination, filters, sorter) => {
    console.log("Various parameters", pagination, filters, sorter);

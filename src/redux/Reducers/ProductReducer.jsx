@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios';
 
 const initialState = {
     arrProduct: [
@@ -57,9 +58,39 @@ const ProductReducer = createSlice({
     setArrayProductAction: (state, action) => {
         state.arrProduct = action.payload
     }
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getAllProductAsyncThunkAction.fulfilled, (state, action) => {
+        state.arrProduct = action.payload
+    })
   }
 });
 
 export const {setArrayProductAction} = ProductReducer.actions
 
 export default ProductReducer.reducer
+
+
+//------------------action thunk (action bất đồng bộ gọi api)-------------------
+export const getAllProductApiAction = () => { //closure function
+    //export const getAllProductApiAction = (param) => {
+    return async (dispatch) => {
+        const res = await axios({
+            url: 'https://shop.cyberlearn.vn/api/Product',//+param
+            method: 'GET'
+          })
+          //sau khi có dữ liệu
+          const action = setArrayProductAction(res.data.content)
+          dispatch(action)
+        }
+}
+
+export const getAllProductAsyncThunkAction = createAsyncThunk('productReducer/getAllProductAsyncThunkAction', async () => {
+    const res = await axios({
+        url: 'https://shop.cyberlearn.vn/api/Product',
+        method: 'GET'
+      })
+
+      //return kết quả
+      return res.data.content
+})
