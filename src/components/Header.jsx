@@ -1,7 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
+
+  const {userLogin} = useSelector(state => state.userReducer)
+  console.log(userLogin)
+
+
   return (
     //bs5=navbar-background
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -13,7 +19,12 @@ const Header = () => {
         <NavLink className="nav-link active" to="trang-chu" aria-current="page">Home <span className="visually-hidden">(current)</span></NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="login">Login</NavLink>
+        {(() => { //IIFE function
+          if (userLogin.email != '') {
+            return <NavLink className="nav-link" to="/profile">Hello {userLogin.email}</NavLink>
+          }
+           return <NavLink className="nav-link" to="login">Login</NavLink>
+        })()}
       </li>
       <li className="nav-item">
         <NavLink className="nav-link" to="search">Search</NavLink>
