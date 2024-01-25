@@ -1,19 +1,27 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector} from 'react-redux'
+import { getProfileApiAction } from '../redux/Reducers/UserReducer'
 
 const Profile = () => {
-  const [userProfile, setUserProfile] = useState({})
+  //const [userProfile, setUserProfile] = useState({})
+  const {userProfile} = useSelector(state => state.userReducer)
+  const dispatch = useDispatch()
 
   const getProfileApi = async () => {
-    const res = await axios({
-      url: 'https://shop.cyberlearn.vn/api/Users/getProfile',
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    })
-    console.log(res)
-    setUserProfile(res.data.content)
+    // const res = await axios({
+    //   url: 'https://shop.cyberlearn.vn/api/Users/getProfile',
+    //   method: 'POST',
+    //   headers: {
+    //     'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    //   }
+    // })
+    // console.log(res)
+    // setUserProfile(res.data.content)
+
+    const action = getProfileApiAction()
+    //dispatch logic gọi api từ action async (userReducer)
+    dispatch(action)
   }
 
   useEffect(() => {
