@@ -37,6 +37,10 @@ const Search = () => {
   };
 
   useEffect(() => {
+    if (key == '') {
+      formSearch.setFieldValue('keyword', searchParams.get('keyword'))
+    }
+
     getProductByKeyword();
   }, [key]);
   return (
@@ -52,6 +56,7 @@ const Search = () => {
               name="keyword"
               placeholder="Username"
               onChange={formSearch.handleChange}
+              value={formSearch.keyword}
             />
             <label htmlFor="floatingInputGroup1">Enter the keyword</label>
           </div>

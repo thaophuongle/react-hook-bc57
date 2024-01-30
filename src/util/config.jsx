@@ -1,4 +1,5 @@
 import axios from "axios"
+import {history} from "../index"
 
 export const USER_LOGIN = 'userLogin'
 export const TOKEN = 'accessToken'
@@ -46,7 +47,8 @@ http.interceptors.response.use((res) => {
 
     } else if (err.response?.status === 401) {
         alert('Đăng nhập để vào trang này!')
-        window.location.href = '/login';
+        //window.location.href = '/login';
+        history.push('/login')
 
     }else if (err.response?.status === 403) {
         

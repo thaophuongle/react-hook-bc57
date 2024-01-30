@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import HomeTemplate from "./templates/HomeTemplate";
 import Home from "./pages/Home";
 import { Provider } from "react-redux";
@@ -28,9 +28,17 @@ import AntDemo from "./pages/AntDemo";
 import TableAntd from "./pages/TableAntd";
 import ProductManagement from "./pages/ProductManagement";
 
+
+//cấu hình chuyển hướng trang thông qua history
+import {createBrowserHistory} from 'history'
+import DemoHOC from "./HOC/DemoHOC";
+
+//history giúp chuyển hướng trang
+export const history = createBrowserHistory()
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <Routes>
         <Route path="" element={<HomeTemplate />}>
           <Route index element={<Home />} />
@@ -56,10 +64,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="ant-demo" element={<AntDemo />} />
           <Route path="table-antd" element={<TableAntd />} />
           <Route path="product-management" element={<ProductManagement />} />
+          <Route path="hoc" element={<DemoHOC />} />
           
           <Route path="*" element={<Navigate to="" />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   </Provider>
 );

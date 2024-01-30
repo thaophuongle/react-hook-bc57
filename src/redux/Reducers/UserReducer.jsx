@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
-import { TOKEN, USER_LOGIN, http } from '../../util/config';
+import { USER_LOGIN, TOKEN, http } from '../../util/config'; 
+import { history } from '../../index';
 
 //xử lý load giá trị ban đầu cho state từ storage (localStorage)
 let userLoginDefault = {
@@ -64,10 +65,16 @@ export const loginApiAction = (userLogin) => { //closure function
 
 export const getProfileApiAction = () => {
   return async (dispatch) => {
-    const res = await http.post('/Users/getProfile')
+    try
+    {
+      const res = await http.post('/Users/getProfile')
 
     //sau khi có dữ liệu => dispatch lên reducer
     const action = getProfileAction(res.data.content)
     dispatch(action)
+    }
+    catch(err) {
+
+    }
   }
 }

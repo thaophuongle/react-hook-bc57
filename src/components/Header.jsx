@@ -1,12 +1,28 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useFormik } from 'formik'
+import { history } from '../index'
 
 const Header = () => {
 
+  // const [searchParams, setSearchParam] = useSearchParams()
   const {userLogin} = useSelector(state => state.userReducer)
   console.log(userLogin)
 
+  const frm = useFormik({
+    initialValues: {
+      keyword: ''
+    },
+    onSubmit: ({keyword}) => {
+      history.push(`/search?keyword=${keyword}`)
+      //đưa keyword lên url
+      // setSearchParam({
+      //   //keyword: keyword
+      //   keyword
+      // })
+    }
+  })
 
   return (
     //bs5=navbar-background
@@ -64,9 +80,12 @@ const Header = () => {
           <NavLink className="dropdown-item" to="use-formik">UseFormik</NavLink>
         </div>
       </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="search">HOC</NavLink>
+      </li>
     </ul>
-    <form className="d-flex my-2 my-lg-0">
-      <input className="form-control me-sm-2" type="text" placeholder="Search" />
+    <form className="d-flex my-2 my-lg-0" onSubmit={frm.handleSubmit}>
+      <input className="form-control me-sm-2" type="text" placeholder="Search" id='keyword' name='keyword' onChange={frm.handleChange}/>
       <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
         Search
       </button>
