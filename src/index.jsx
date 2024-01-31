@@ -32,6 +32,7 @@ import ProductManagement from "./pages/ProductManagement";
 //cấu hình chuyển hướng trang thông qua history
 import {createBrowserHistory} from 'history'
 import DemoHOC from "./HOC/DemoHOC";
+import DemoContainerComponent from "./HOC/ContainerComponent/DemoContainerComponent";
 
 //history giúp chuyển hướng trang
 export const history = createBrowserHistory()
@@ -65,6 +66,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="table-antd" element={<TableAntd />} />
           <Route path="product-management" element={<ProductManagement />} />
           <Route path="hoc" element={<DemoHOC />} />
+          <Route path="container-component" element={<DemoContainerComponent />} />
           
           <Route path="*" element={<Navigate to="" />} />
         </Route>

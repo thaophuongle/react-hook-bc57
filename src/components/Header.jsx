@@ -81,7 +81,10 @@ const Header = () => {
         </div>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="search">HOC</NavLink>
+        <NavLink className="nav-link" to="hoc">HOC</NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="container-component">Container Component</NavLink>
       </li>
     </ul>
     <form className="d-flex my-2 my-lg-0" onSubmit={frm.handleSubmit}>
