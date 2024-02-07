@@ -33,12 +33,15 @@ import ProductManagement from "./pages/ProductManagement";
 import {createBrowserHistory} from 'history'
 import DemoHOC from "./HOC/DemoHOC";
 import DemoContainerComponent from "./HOC/ContainerComponent/DemoContainerComponent";
+import DrawerComponent from "./HOC/DrawerComponent/DrawerComponent";
+import DemoTestDrawer from "./pages/DemoTestDrawer";
 
 //history giúp chuyển hướng trang
 export const history = createBrowserHistory()
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
+    <DrawerComponent/>
     <HistoryRouter history={history}>
       <Routes>
         <Route path="" element={<HomeTemplate />}>
@@ -67,7 +70,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="product-management" element={<ProductManagement />} />
           <Route path="hoc" element={<DemoHOC />} />
           <Route path="container-component" element={<DemoContainerComponent />} />
-          
+          <Route path="test-drawer" element={<DemoTestDrawer />} />
+
           <Route path="*" element={<Navigate to="" />} />
         </Route>
       </Routes>

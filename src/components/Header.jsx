@@ -86,6 +86,9 @@ const Header = () => {
       <li className="nav-item">
         <NavLink className="nav-link" to="container-component">Container Component</NavLink>
       </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="test-drawer">Drawer Component</NavLink>
+      </li>
     </ul>
     <form className="d-flex my-2 my-lg-0" onSubmit={frm.handleSubmit}>
       <input className="form-control me-sm-2" type="text" placeholder="Search" id='keyword' name='keyword' onChange={frm.handleChange}/>
