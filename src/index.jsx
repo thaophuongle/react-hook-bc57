@@ -41,8 +41,8 @@ export const history = createBrowserHistory()
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <DrawerComponent/>
     <HistoryRouter history={history}>
+    <DrawerComponent/>
       <Routes>
         <Route path="" element={<HomeTemplate />}>
           <Route index element={<Home />} />

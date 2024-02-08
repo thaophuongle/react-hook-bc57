@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { loginApiAction } from '../redux/Reducers/UserReducer'
 import { useDispatch } from 'react-redux'
+import { updateOnOkayAction } from '../redux/Reducers/DrawerReducer'
 
 const Login = () => {
   const navigate = useNavigate()//useNavigate dùng để điều hướng trang
@@ -42,6 +43,11 @@ const Login = () => {
       dispatch(action)
     }
   })
+
+  useEffect(() => {
+    const action = updateOnOkayAction(formLogin.handleSubmit)
+    dispatch(action)
+  }, [])
 
   return (
     <form className='container' onSubmit={formLogin.handleSubmit}>

@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Drawer, Space } from 'antd';
 import {useSelector, useDispatch} from 'react-redux'
 import { handleDrawerAction } from '../../redux/Reducers/DrawerReducer';
 const DrawerComponent = () => {
   //const [open, setOpen] = useState(true);
-  const {open} = useSelector(state => state.drawerReducer)
+  const {open, ContentComponent, onOkay} = useSelector(state => state.drawerReducer)
   const dispatch = useDispatch()
 
   const handleCloseDrawer = () => {
     const action = handleDrawerAction(false)
     dispatch(action)
   }
+
   return (
     <>
       <Drawer
@@ -22,15 +23,15 @@ const DrawerComponent = () => {
         extra={
           <Space>
             <Button onClick={handleCloseDrawer}>Cancel</Button>
-            <Button type="primary">
+            <Button type="primary" onClick={() => {
+              onOkay()
+            }}>
               OK
             </Button>
           </Space>
         }
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        {ContentComponent}
       </Drawer>
     </>
   );

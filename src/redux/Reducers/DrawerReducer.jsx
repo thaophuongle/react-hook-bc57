@@ -1,7 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    open: true
+    open: true,
+    ContentComponent: <p>Default content</p>,
+    onOkay: (e) => {
+      alert('ok')
+    }
 }
 
 const DrawerReducer = createSlice({
@@ -10,10 +14,17 @@ const DrawerReducer = createSlice({
   reducers: {
     handleDrawerAction: (state, action) => {
         state.open = action.payload
+    },
+    updateContentDrawerAction: (state, action) => {
+      state.open = true
+      state.ContentComponent = action.payload
+    },
+    updateOnOkayAction: (state, action) => {
+      state.onOkay = action.payload
     }
   }
 });
 
-export const {handleDrawerAction} = DrawerReducer.actions
+export const {handleDrawerAction, updateContentDrawerAction, updateOnOkayAction} = DrawerReducer.actions
 
 export default DrawerReducer.reducer
