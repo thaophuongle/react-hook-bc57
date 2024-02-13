@@ -26,6 +26,9 @@ const DeviceTemplate = (props) => { //props{Component: , MobileComponent}
         if(screen.width < 768 && props.MobileComponent) {
             setComponent(props.MobileComponent)
         }
+        else {
+            setComponent(props.Component)
+        }
 
         
     }, [screen.width])

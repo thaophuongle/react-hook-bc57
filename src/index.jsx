@@ -35,6 +35,8 @@ import DemoHOC from "./HOC/DemoHOC";
 import DemoContainerComponent from "./HOC/ContainerComponent/DemoContainerComponent";
 import DrawerComponent from "./HOC/DrawerComponent/DrawerComponent";
 import DemoTestDrawer from "./pages/DemoTestDrawer";
+import DeviceTemplate from "./templates/DeviceTemplate";
+import HomeMobile from "./pages/HomeMobile";
 
 //history giúp chuyển hướng trang
 export const history = createBrowserHistory()
@@ -45,7 +47,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <DrawerComponent/>
       <Routes>
         <Route path="" element={<HomeTemplate />}>
-          <Route index element={<Home />} />
+          <Route index element={<DeviceTemplate Component={Home} MobileComponent={<HomeMobile/>}/>} />
 
           <Route path="use-state-demo" element={<UseStateDemo />} />
           <Route path="use-state-change-profile" element={<ChangeProfile />} />
